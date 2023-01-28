@@ -7,6 +7,8 @@ const Annonce = require("./models/annonce.model");
 
 
 const annonceRoutes = require("./routes/annonce.routes");
+const userRoutes = require("./routes/user.routes")
+
 const cors = require('cors')
 const db = require("./models");
 const dbConfig = require("./config/db.config");
@@ -16,12 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cors())
 app.use("/api/annonces",annonceRoutes);
+app.use("/api/users",userRoutes);
 
 
 const Role = db.role;
 // app.use('./routes/auth.routes')
 require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
+require('./routes/accessUser.routes')(app);
 
 const PORT = process.env.PORT || 5000
 

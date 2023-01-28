@@ -1,5 +1,4 @@
 const express = require("express");
-const Annonce = require("../models/annonce.model");
 const {createAnnonce, getAllAnnonces, getAnnonce, deleteAnnonce, updateAnnonce} = require("../controllers/annonce.controller");
 const router = express.Router();
 
